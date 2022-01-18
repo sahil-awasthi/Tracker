@@ -1,7 +1,12 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5d3e3040-3d5b-4201-b5b9-7a8a1d630752/deploy-status)](https://trackey.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/571488fc-f366-4107-b61a-a98217f4e943/deploy-status)](https://forkify-sahil.netlify.app/)
 
-# Tracker 📋
+# Forkify
 
-`Type` Running :running:, Cycling :bicyclist:, Distance :straight_ruler:, Duration :stopwatch:, Cadence :foot:, Elevation Gain :mountain:
+### Recipe application which can
+
+1. Search recipe
+2. Bookmark it
+3. Change ingredient according to servings
+4. Upload custom recipe
 
 ###### Using for portfolio purpose :link:[Sahil Awasthi](https://linktr.ee/sahilawasthi)
