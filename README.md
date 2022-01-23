@@ -2,17 +2,22 @@
 
 # Tracker 📋
 
-#### Workout Types 
-* Running :running:
-* Cycling :bicyclist:
+#### Workout Types
+
+- Running :running:
+- Cycling :bicyclist:
 
 #### Inputs
-* Distance :straight_ruler:
-* Duration :stopwatch:
-* Cadence :foot:
-* Elevation Gain :mountain:
+
+- Distance :straight_ruler:
+- Duration :stopwatch:
+- Cadence :foot:
+- Elevation Gain :mountain:
 
 #### Feature
-* Locally `save` your workout ☁️
+
+- Locally `save` your workout ☁️
+
+<p align="center"><a href="https://github.com/sahil-awasthi"><img width="100%" src="./tracky-view.gif" alt="View gif"/></a></p>
 
 ###### Using for portfolio purpose :link:[Sahil Awasthi](https://linktr.ee/sahilawasthi)
