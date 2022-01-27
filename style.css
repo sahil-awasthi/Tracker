@@ -87,7 +87,21 @@ a:visited {
 .workout__title {
   font-size: 1.7rem;
   font-weight: 600;
+  /* grid-column: 1 / -1; */
+}
+
+.workout__title-container {
   grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.workout__delete_button {
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transform: translate(10px, -10px);
 }
 
 .workout__details {
