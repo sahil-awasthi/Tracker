@@ -17,6 +17,7 @@
 #### Feature
 
 - Locally `save` your workout ☁️
+- Delete workout 🚮
 
 <p align="center"><a href="https://github.com/sahil-awasthi"><img width="100%" src="./tracky-view.gif" alt="View gif"/></a></p>
 

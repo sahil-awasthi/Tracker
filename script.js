@@ -73,6 +73,7 @@ class App {
     form.addEventListener('submit', this.#newWorkout.bind(this));
     inputType.addEventListener('change', this.#toggleElevationField);
     containerWorkouts.addEventListener('click', this.#moveToPopup.bind(this));
+    containerWorkouts.addEventListener('click', this.#deleteWorkout.bind(this));
   }
 
   #getpositions() {
@@ -193,6 +194,7 @@ class App {
           autoClose: false,
           closeOnClick: false,
           className: `${workout.type}-popup`,
+          workoutId: workout.id,
         })
       )
       .setPopupContent(
@@ -204,7 +206,12 @@ class App {
   #renderWorkout(workout) {
     let html = `
         <li class="workout workout--${workout.type}" data-id=${workout.id}>
+        <div class="workout__title-container">
           <h2 class="workout__title">${workout.description}</h2>
+          <button class="workout__delete_button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#ff6b6b" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><line x1="216" y1="56" x2="40" y2="56" fill="none" stroke="#ff6b6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="104" y1="104" x2="104" y2="168" fill="none" stroke="#ff6b6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><line x1="152" y1="104" x2="152" y2="168" fill="none" stroke="#ff6b6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line><path d="M200,56V208a8,8,0,0,1-8,8H64a8,8,0,0,1-8-8V56" fill="none" stroke="#ff6b6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path><path d="M168,56V40a16,16,0,0,0-16-16H104A16,16,0,0,0,88,40V56" fill="none" stroke="#ff6b6b" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg>
+          </button>
+          </div>
           <div class="workout__details">
             <span class="workout__icon">${
               workout.type === 'running' ? ' 🏃‍♂️' : '🚴🏻‍♂️'
@@ -263,6 +270,29 @@ class App {
         duration: 1,
       },
     });
+  }
+
+  #deleteWorkout(e) {
+    if (!this.#map) return;
+
+    const deleteWorkout = e.target.closest('.workout');
+    const isDeleteButtonClicked = e.target.closest('.workout__delete_button');
+    if (!isDeleteButtonClicked) return;
+
+    const [delworkoutMarker] = Object.values(this.#map._layers).filter(
+      workout => workout._popup?.options.workoutId === deleteWorkout.dataset.id
+    );
+    this.#map.removeLayer(delworkoutMarker);
+
+    this.#workouts = this.#workouts.filter(
+      workout => workout.id !== deleteWorkout.dataset.id
+    );
+
+    // Deletes workout from rendered list
+    deleteWorkout.remove();
+
+    // Set local storage to new workouts
+    this.#setLocalStorage();
   }
 
   #setLocalStorage() {
